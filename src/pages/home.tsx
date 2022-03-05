@@ -36,6 +36,7 @@ const Select = styled.div`
   justify-content: center;
   font-weight: 900;
   font-size: 18px;
+  color: black;
   cursor: pointer;
 
   &:focus-within {
@@ -58,7 +59,7 @@ const Home = () => {
     const bucket = firebaseDB.collection('bucket');
     // bucket.add({ result_type: 'A' });
     bucket.get().then((docs) => {
-      console.log(docs.size);
+      // console.log(docs.size);
       setParticipatorCount(docs.size);
     });
   }, []);
@@ -68,11 +69,11 @@ const Home = () => {
       <Description>
         나의 작심삼일
         <br />
-        극복 확률은?@@@
+        극복 확률은?
       </Description>
       <Writer>PETER X KATE</Writer>
       <Link to="/introduce" style={{ textDecorationLine: 'none' }}>
-        <Select onClick={() => {}}>테스트 시작!</Select>
+        <Select>테스트 시작!</Select>
       </Link>
       <div style={{ fontSize: '18px', fontWeight: '900' }}>참여자 수</div>
       <div style={{ fontSize: '18px', fontWeight: '900' }}>{participatorCount}</div>

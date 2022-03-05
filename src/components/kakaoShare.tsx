@@ -1,4 +1,25 @@
 import React, { useEffect } from 'react';
+import styled from 'styled-components';
+
+export const ShareResult = styled.button`
+  height: 64px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 20px;
+  padding: 0;
+
+  &:focus-within {
+    background-color: #a6a6a6;
+    color: #676767;
+  }
+  &:hover {
+    background-color: #a6a6a6;
+    color: #676767;
+  }
+  width: 220px;
+`;
+
 declare global {
   interface Window {
     Kakao: any;
@@ -21,24 +42,24 @@ const KakaoShareButton = () => {
   const createKakaoButton = () => {
     // kakao sdk script이 정상적으로 불러와졌으면 window.Kakao로 접근이 가능합니다
 
+    const imageUrl = '/images/kakaoShareLogo.png';
     window.Kakao.Link.sendDefault({
       // Render 부분 id=kakao-link-btn 을 찾아 그부분에 렌더링을 합니다
       objectType: 'feed',
       content: {
         title: '작심삼일 심리테스트',
         description: '#작심삼일 #심리테스트 #메타인지',
-        imageUrl:
-          'http://mud-kage.kakao.co.kr/dn/Q2iNx/btqgeRgV54P/VLdBs9cvyn8BJXB3o7N8UK/kakaolink40_original.png',
+        imageUrl: 'https://ifh.cc/g/KXfoE6.png',
         link: {
           mobileWebUrl: window.location.href,
           webUrl: window.location.href,
         },
       },
-      social: {
-        likeCount: 77,
-        commentCount: 55,
-        sharedCount: 333,
-      },
+      // social: {
+      //   likeCount: 77,
+      //   commentCount: 55,
+      //   sharedCount: 333,
+      // },
       buttons: [
         {
           title: '웹으로 보기',
@@ -58,7 +79,7 @@ const KakaoShareButton = () => {
     });
   };
 
-  return <div onClick={createKakaoButton}>카카오톡 공유</div>;
+  return <ShareResult onClick={createKakaoButton}>카카오톡 공유</ShareResult>;
 };
 
 export default KakaoShareButton;

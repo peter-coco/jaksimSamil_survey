@@ -47,15 +47,7 @@ const Survey = () => {
           setCountSecond={setCountSecond}
         />
       )}
-      {surveyForm === 5 && (
-        <SurveyFive
-          setSurveyForm={setSurveyForm}
-          setCountFirst={setCountFirst}
-          setCountSecond={setCountSecond}
-          countFirst={countFirst}
-          countSecond={countSecond}
-        />
-      )}
+      {surveyForm === 5 && <SurveyFive countFirst={countFirst} countSecond={countSecond} />}
     </SurveyWrap>
   );
 };

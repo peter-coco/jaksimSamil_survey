@@ -33,6 +33,7 @@ const Select = styled.div`
   font-weight: 900;
   font-size: 18px;
   cursor: pointer;
+  color: black;
 
   &:focus-within {
     background-color: #a6a6a6;

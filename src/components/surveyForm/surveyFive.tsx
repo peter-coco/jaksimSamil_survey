@@ -1,40 +1,45 @@
 import React, { useEffect, useState } from 'react';
 import * as Styles from './suveyForm.style';
+import { firebaseDB } from '../../config/firebase';
 
-const SurveyFive = ({
-  setSurveyForm,
-  setCountFirst,
-  setCountSecond,
-  countFirst,
-  countSecond,
-}: {
-  setSurveyForm: Function;
-  setCountFirst: Function;
-  setCountSecond: Function;
-  countFirst: number;
-  countSecond: number;
-}) => {
+const SurveyFive = ({ countFirst, countSecond }: { countFirst: number; countSecond: number }) => {
   const image = '/images/survey5.jpeg';
-  const onClickFirstAnswer = () => {
+  const onClickFirstAnswer = async () => {
     // a, b, d, c
     if (countFirst + 1 === 5) {
+      const bucket = firebaseDB.collection('bucket');
+      await bucket.add({ result_type: 'A' });
       window.location.href = '/result/A';
     } else if (countFirst + 1 >= 3) {
+      const bucket = firebaseDB.collection('bucket');
+      await bucket.add({ result_type: 'B' });
       window.location.href = '/result/B';
     } else if (countSecond === 5) {
+      const bucket = firebaseDB.collection('bucket');
+      await bucket.add({ result_type: 'D' });
       window.location.href = '/result/D';
     } else if (countSecond >= 3) {
+      const bucket = firebaseDB.collection('bucket');
+      await bucket.add({ result_type: 'C' });
       window.location.href = '/result/C';
     }
   };
-  const onClickSecondAnswer = () => {
+  const onClickSecondAnswer = async () => {
     if (countFirst === 5) {
+      const bucket = firebaseDB.collection('bucket');
+      await bucket.add({ result_type: 'A' });
       window.location.href = '/result/A';
     } else if (countFirst >= 3) {
+      const bucket = firebaseDB.collection('bucket');
+      await bucket.add({ result_type: 'B' });
       window.location.href = '/result/B';
     } else if (countSecond + 1 === 5) {
+      const bucket = firebaseDB.collection('bucket');
+      await bucket.add({ result_type: 'D' });
       window.location.href = '/result/D';
     } else if (countSecond + 1 >= 3) {
+      const bucket = firebaseDB.collection('bucket');
+      await bucket.add({ result_type: 'C' });
       window.location.href = '/result/C';
     }
   };

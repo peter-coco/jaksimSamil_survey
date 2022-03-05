@@ -4,6 +4,7 @@ import { firebaseDB } from '../../config/firebase';
 import { Helmet } from 'react-helmet';
 import KakaoShareButton from '../kakaoShare';
 import { Link } from 'react-router-dom';
+import KakaoAdfit from '../kakaoAdfit';
 
 const Atype = () => {
   const ReusltTypeImage = '/images/resultA.jpeg';
@@ -20,7 +21,8 @@ const Atype = () => {
           Acount++;
         }
       });
-      setResultAPercent((Acount / docs.size) * 100);
+      const percentage = Number(((Acount / docs.size) * 100).toFixed(2));
+      setResultAPercent(percentage);
     });
   }, []);
 
@@ -71,6 +73,7 @@ const Atype = () => {
         </Link>
         <KakaoShareButton />
       </Styles.OptionWrap>
+      <KakaoAdfit />
     </Styles.ResultTypeWrap>
   );
 };
