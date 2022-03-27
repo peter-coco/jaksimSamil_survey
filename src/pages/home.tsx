@@ -71,7 +71,7 @@ const Home = () => {
         <br />
         극복 확률은?
       </Description>
-      <Writer>PETER X KATE</Writer>
+      <Writer>REPLACE</Writer>
       <Link to="/introduce" style={{ textDecorationLine: 'none' }}>
         <Select>테스트 시작!</Select>
       </Link>
